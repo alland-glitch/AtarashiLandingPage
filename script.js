@@ -5,7 +5,8 @@ const defaultWebsites = [
     { name: "Arsenio", url: "https://adminweb09.github.io/Protofolio_Zen/" },
     { name: "Anggara", url: "https://anggarapd16-ai.github.io/portofolio/" },
     { name: "Alif", url: "https://alland-glitch.github.io/Web-Portofolio-Alland-Freda/" },
-    { name: "Akbar", url: "https://akbarimut007-coder.github.io/Web_Portofolio/" }
+    { name: "Akbar", url: "https://akbarimut007-coder.github.io/Web_Portofolio/" },
+    { name: "Alin", url: "https://alland-glitch.github.io/PortofolioAlin/" }
 ];
 
 // Local storage key
