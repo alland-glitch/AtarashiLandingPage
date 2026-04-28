@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkVault — Your Gateway to Connected Websites</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">LinkVault</div>
+        <div class="navbar-menu" id="navbar-menu">
+            <!-- Websites will be dynamically added here -->
+        </div>
+        <div class="navbar-actions">
+            <input type="text" id="search-input" placeholder="Search websites..." class="search-input">
+            <button id="add-website-btn" class="add-btn">+ Add Website</button>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1>LinkVault</h1>
+            <p>Your Gateway to Connected Websites</p>
+            <p>Manage and access your portfolio websites in one modern hub.</p>
+        </section>
+
+        <section class="websites-grid" id="websites-grid">
+            <!-- Websites cards will be dynamically added here -->
+        </section>
+    </main>
+
+    <!-- Modal for viewing websites -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-loading" id="modal-loading">
+                <div class="spinner"></div>
+                <p>Loading...</p>
+            </div>
+            <iframe id="modal-iframe" class="modal-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Form modal for adding websites -->
+    <div class="form-overlay" id="form-overlay">
+        <div class="form-modal">
+            <h2>Add New Website</h2>
+            <form id="add-website-form">
+                <input type="text" id="website-name" placeholder="Website Name" required>
+                <input type="url" id="website-url" placeholder="Website URL" required>
+                <button type="submit">Add Website</button>
+            </form>
+            <button class="form-close" id="form-close">&times;</button>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
