@@ -107,6 +107,27 @@ function setActiveNavbarItem(activeItem) {
 
 // Open modal with iframe
 function openModal(url) {
+    if (modalOverlay.style.display === 'flex') {
+        // If modal is already open, just change the iframe src
+        modalLoading.style.display = 'block';
+        modalIframe.style.display = 'none';
+        modalIframe.src = '';
+
+        const timeout = setTimeout(() => {
+            modalLoading.innerHTML = '<p>Failed to load website</p>';
+        }, 10000);
+
+        modalIframe.onload = () => {
+            clearTimeout(timeout);
+            modalLoading.style.display = 'none';
+            modalIframe.style.display = 'block';
+        };
+
+        modalIframe.src = url;
+        return;
+    }
+
+    // Open modal if not already open
     modalOverlay.style.display = 'flex';
     modalLoading.style.display = 'block';
     modalIframe.style.display = 'none';
