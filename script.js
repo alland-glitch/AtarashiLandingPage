@@ -4,7 +4,8 @@
 const defaultWebsites = [
     { name: "Arsenio", url: "https://adminweb09.github.io/Protofolio_Zen/" },
     { name: "Anggara", url: "https://anggarapd16-ai.github.io/portofolio/" },
-    { name: "Alif", url: "https://alland-glitch.github.io/Web-Portofolio-Alland-Freda/" }
+    { name: "Alif", url: "https://alland-glitch.github.io/Web-Portofolio-Alland-Freda/" },
+    { name: "Akbar", url: "https://akbarimut007-coder.github.io/Web_Portofolio/" }
 ];
 
 // Local storage key
@@ -39,8 +40,18 @@ function init() {
 // Load websites from localStorage or use defaults
 function loadWebsites() {
     const stored = localStorage.getItem(STORAGE_KEY);
-    websites = stored ? JSON.parse(stored) : [...defaultWebsites];
-    if (!stored) {
+    if (stored) {
+        websites = JSON.parse(stored);
+        // Add any missing default websites without duplicates
+        defaultWebsites.forEach(defaultSite => {
+            const exists = websites.some(site => site.url === defaultSite.url);
+            if (!exists) {
+                websites.push(defaultSite);
+            }
+        });
+        saveWebsites(); // Save updated list
+    } else {
+        websites = [...defaultWebsites];
         saveWebsites();
     }
 }
