@@ -4,7 +4,7 @@
 const defaultWebsites = [
     { name: "Arsenio", url: "https://adminweb09.github.io/Protofolio_Zen/" },
     { name: "Anggara", url: "https://anggarapd16-ai.github.io/portofolio/" },
-    { name: "Alif", url: "https://alland-glitch.github.io/Web-Portofolio-Alland-Freda/" },
+    { name: "Alif", url: "https://alland-glitch.github.io/New-Blender-Portofolio-Alland-Freda/" },
     { name: "Akbar", url: "https://akbarimut007-coder.github.io/Web_Portofolio/" },
     { name: "Alin", url: "https://alland-glitch.github.io/PortofolioAlin/" }
 ];
@@ -50,6 +50,15 @@ function loadWebsites() {
                 websites.push(defaultSite);
             }
         });
+        // Remove duplicates by name, keeping the last occurrence (updated URL)
+        const seen = new Map();
+        websites = websites.reverse().filter(site => {
+            if (!seen.has(site.name)) {
+                seen.set(site.name, true);
+                return true;
+            }
+            return false;
+        }).reverse();
         saveWebsites(); // Save updated list
     } else {
         websites = [...defaultWebsites];
